@@ -1,4 +1,4 @@
-package com.IronTrack.IronTrackBE.Entity;
+package com.IronTrack.IronTrackBE.Entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;

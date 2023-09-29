@@ -1,6 +1,6 @@
 package com.IronTrack.IronTrackBE.Repository;
 
-import com.IronTrack.IronTrackBE.Entity.ExerciseEntitiy;
+import com.IronTrack.IronTrackBE.Entities.ExerciseEntitiy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

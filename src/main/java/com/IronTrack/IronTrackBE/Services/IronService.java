@@ -1,6 +1,6 @@
 package com.IronTrack.IronTrackBE.Services;
 
-import com.IronTrack.IronTrackBE.Entity.ExerciseEntitiy;
+import com.IronTrack.IronTrackBE.Entities.ExerciseEntitiy;
 import com.IronTrack.IronTrackBE.Repository.ExerciseRepo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

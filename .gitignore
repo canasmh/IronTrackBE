@@ -33,3 +33,5 @@ build/
 ### VS Code ###
 .vscode/
 
+### Environment variables
+src/main/resources/application.properties

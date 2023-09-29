@@ -1,7 +1,7 @@
 package com.IronTrack.IronTrackBE.Models;
 
-import com.IronTrack.IronTrackBE.Entity.ExerciseEntitiy;
-import com.IronTrack.IronTrackBE.Entity.RoutineExercisesEntity;
+import com.IronTrack.IronTrackBE.Entities.ExerciseEntitiy;
+import com.IronTrack.IronTrackBE.Entities.RoutineExercisesEntity;
 import lombok.Data;
 
 @Data
