@@ -1,17 +1,11 @@
 package com.IronTrack.IronTrackBE.Repository;
 
-import com.IronTrack.IronTrackBE.Repository.Entities.UserEntitiy;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import com.IronTrack.IronTrackBE.Entity.UserEntity;
 
-import java.util.List;
-
-@Repository
-public interface UserRepo extends JpaRepository<UserEntitiy, Long> {
-    //Dervived Query
-    List<UserEntitiy> findByEmailAndPassword(String email, String password);
-    Boolean existsByEmailAndPassword(String email, String password);
-
-
-
+public interface UserRepo extends JpaRepository<UserEntity, Long> {
+    // Define custom query methods if needed
+    UserEntity findByEmail(String email);
 }
+
+

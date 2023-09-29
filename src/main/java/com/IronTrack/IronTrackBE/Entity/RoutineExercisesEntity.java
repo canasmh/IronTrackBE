@@ -1,4 +1,4 @@
-package com.IronTrack.IronTrackBE.Repository.Entities;
+package com.IronTrack.IronTrackBE.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,23 +11,32 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @Entity
-@Table(name = "users")
-public class UserEntitiy {
-    @Id
+@Table(name = "routine_exercises")
+
+@AllArgsConstructor
+public class RoutineExercisesEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Id
+    //primary key
     @Column
-    private String name;
+    private Integer id;
+    @Column(name = "routine_id")
+    private Integer routineId;
     @Column
-    private String email;
+    private String exercise_id;
     @Column
-    private String password;
+    private Integer weight;
+    @Column
+    private Integer sets;
+    @Column
+    private Integer reps;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        UserEntitiy that = (UserEntitiy) o;
+        RoutineExercisesEntity that = (RoutineExercisesEntity) o;
         return id != null && Objects.equals(id, that.id);
     }
 
@@ -36,4 +45,3 @@ public class UserEntitiy {
         return getClass().hashCode();
     }
 }
-
