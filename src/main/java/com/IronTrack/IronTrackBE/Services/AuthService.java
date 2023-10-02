@@ -3,6 +3,7 @@ package com.IronTrack.IronTrackBE.Services;
 import com.IronTrack.IronTrackBE.Controllers.AuthenticationResponse;
 import com.IronTrack.IronTrackBE.Controllers.LoginRequest;
 import com.IronTrack.IronTrackBE.Controllers.SignupRequest;
+import com.IronTrack.IronTrackBE.Entities.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -31,6 +32,7 @@ public class AuthService {
                     .name(request.getName())
                     .email(request.getEmail())
                     .password(passwordEncoder.encode(request.getPassword()))
+                    .role(Role.USER)
                     .build();
             userRepo.save(user);
             var jwtToken = jwtService.generateToken(user);

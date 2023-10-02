@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,8 @@ import java.util.Map;
 @Service
 public class JwtService {
 
-    private static final String SECRET_KEY = "yQYTQIVAzH3318wJaitHTYLd1x2JCMUINyE0ugUiTTKf0iIXtAwEEvJ6gGHbsY0DtDKRGCP/maUk/cYUKu123WV1T2l0ig92qASGKr1ydJE=\n";
+    @Value("${SECRET_KEY}")
+    private String SECRET_KEY;
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
@@ -40,7 +42,7 @@ public class JwtService {
                 .setClaims(extraClaims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 24))
+                .setExpiration(new Date(System.currentTimeMillis() +  (60 * 24 * 7 * 1000)))
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
@@ -56,6 +58,9 @@ public class JwtService {
     
     public boolean isTokenValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
+
+        System.out.println("Check if token is valid");
+        System.out.println(username.equals(userDetails.getUsername()));
 
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
